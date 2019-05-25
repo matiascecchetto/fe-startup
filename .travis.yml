@@ -1,13 +1,10 @@
 sudo: required
 
-env:
-  - IMAGE_NAME=$TRAVIS_BUILD_DIR-$TRAVIS_BUILD_NUMBER
-
 services:
   - docker
 
 before_install:
-  - docker build -t $IMAGE_NAME -f Dockerfile.dev .
+  - docker build -t $TRAVIS_BUILD_DIR-$TRAVIS_BUILD_NUMBER -f Dockerfile.dev .
 
 script:
-  - docker run $IMAGE_NAME npm run test -- --coverage
+  - docker run $TRAVIS_BUILD_DIR-$TRAVIS_BUILD_NUMBER npm run test -- --coverage
