@@ -8,3 +8,16 @@ before_install:
 
 script:
   - docker run matiascecchetto/fe-startup npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-southeast-2"
+  app: "fe-startup"
+  env: "festartup-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-2-805374242281"
+  bucket_path: "fe-startup"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
