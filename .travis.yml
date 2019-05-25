@@ -4,7 +4,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t matiascecchetto/fe-startup  -f Dockerfile.dev .
+  - docker build -t matiascecchetto/fe-startup -f Dockerfile.dev .
 
 script:
   - docker run matiascecchetto/fe-startup npm run test -- --coverage
+  - tra
