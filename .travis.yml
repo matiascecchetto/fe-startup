@@ -8,4 +8,3 @@ before_install:
 
 script:
   - docker run matiascecchetto/fe-startup npm run test -- --coverage
-  - tra
